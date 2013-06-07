@@ -4,8 +4,7 @@
 	{{/if}}
 
 	{{#if currentUser}}
-		{{currentUser.username}}
-		<a href="#" id="logout">Logout</a>
+		{{currentUser.username}} | <a href="#" id="logout">Logout</a>
 	{{else}}
 		<a href="#" id="connect">Register</a> | {{loginButtons}}
 	{{/if}}

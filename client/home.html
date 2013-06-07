@@ -1,3 +1,11 @@
 <template name="home">
-	home
+	{{#if items}}
+		<ul>
+		{{#each items}}
+			<li><a href="{{resolved_url}}">{{resolved_title}}</a></li>
+		{{/each}}	
+		</ul>
+	{{else}}
+	 	noo!
+	{{/if}}
 </template>

@@ -1,6 +1,8 @@
 <template name="errors">
-	<div class="alert">
+	{{#each errors}}
+	<div class="alert {{#if type}}alert-{{type}}{{/if}}">
 	  <button type="button" class="close" data-dismiss="alert">&times;</button>
-	  <strong>Warning!</strong> Best check yo self, you're not looking too good.
+	  <strong>{{title}}</strong> {{text}}
 	</div>
+	{{/each}}
 </template>

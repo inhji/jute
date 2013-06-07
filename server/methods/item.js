@@ -17,7 +17,6 @@ Meteor.methods({
 		);
 
 		if (result.statusCode === 200) {
-			log.info("Pocket items successfully fetched. " + result.content.list.length() + " items fetched.", "methods/item.js")
 			return (result);
 		}else{
 			return false;

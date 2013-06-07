@@ -11,7 +11,8 @@ Meteor.methods({
 			username: pocketUser.user,
 			password: password,
 			profile: {
-				token: pocketUser.auth
+				token: pocketUser.auth,
+				since: 0
 			}	
 		};
 
