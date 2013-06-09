@@ -1,5 +1,4 @@
 pocketItems = new Meteor.Collection("pocketItems");
-<<<<<<< HEAD
 syncProps		= new Meteor.Collection("syncProps");
 
 Meteor.publish("pocketItems", function (page) {
@@ -17,20 +16,5 @@ Meteor.publish("pocketItems", function (page) {
 });
 
 Meteor.publish("syncProps", function () {
-	return syncProps.find();
-=======
-metaItems		= new Meteor.Collection("metaItems");
-syncProps		= new Meteor.Collection("syncProps");
-
-Meteor.publish("pocketItems", function () {
-	return pocketItems.find({});
-});
-
-Meteor.publish("metaItems", function () {
-	return metaItems.find({});
-});
-
-Meteor.publish("syncProps", function () {
 	return syncProps.find({});
->>>>>>> f1a438b93f139a0577f79a8f33229fc35b1cfe0f
 });
