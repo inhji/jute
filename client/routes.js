@@ -1,4 +1,6 @@
 Meteor.Router.add({
 	'/': 'home',
-	'/complete': 'complete'
+	'/p/:page': function (page) {
+		Session.set("page", page);
+	}
 });

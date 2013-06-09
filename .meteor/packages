@@ -13,6 +13,6 @@ router
 bootstrap
 backbone
 accounts-password
-observatory
 http
 accounts-ui
+email

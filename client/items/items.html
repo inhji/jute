@@ -1,0 +1,20 @@
+<template name="items">
+	{{#if items}}
+		<ul>
+		{{#each items}}
+			<li><a href="{{item.resolved_url}}">{{item.resolved_title}}</a></li>
+		{{/each}}	
+		</ul>
+	{{else}}
+	 	Loading..
+	{{/if}}		
+
+	{{> itemNav}}
+</template>
+
+<template name="itemNav">
+	{{#if prevPage 0}}
+		<a href="/p/{{prevPage}}" id="prev">Prev Page</a> |
+	{{/if}}
+	<a href="/p/{{nextPage}}" id="next">Next Page</a>
+</template>

@@ -1,13 +1,6 @@
 var jute = this.jute = {};
-var log = this.log = TLog.getLogger();
 
-// usage:
-//log.fatal("your message","optional module name");
-//log.error("your message","optional module name");
-//log.warn("your message","optional module name");
-//log.info("your message","optional module name");
-//log.verbose("your message","optional module name");
-//log.debug("your message","optional module name");
+// Tags dürfen keine Punkte enthalten!
 
 // init auth params
 jute.consumerKey = "13218-4061983301b5c6575d604dc0";
@@ -38,16 +31,21 @@ jute.getPocketData = function () {
 
 jute.processPocketData = function () {
 	var items = sProps.getOne(Meteor.userId(), "items");
+	var user = Meteor.userId();
 
 	var newItems = _.map(items, function (elem) {
 		if (elem.resolved_title === "") {
 			elem.resolved_title = "Untitled";
 		};
 
-		return elem;
+		// TODO
+		console.log(elem);
+		pocketItems.insert({item: elem, userId: user}, function (err,res) {
+			console.log(err,res);
+		});
 	});
 
-	sProps.set(Meteor.userId(), "items", newItems);
+	//sProps.set(Meteor.userId(), "items", newItems);
 }
 
 jute.startAuth = function () {
@@ -71,14 +69,14 @@ jute.startAuth = function () {
 
 					Meteor.call("createJuteUser", authString, function (err, juteUser) {
 						if (err) {
-							log.error(err);
+							console.log(err);
 							return;
 						}
 
 						alert(juteUser.password);
 						Meteor.loginWithPassword(juteUser.username, juteUser.password, function (err) {
 							if (err) {
-								log.error(err);
+								console.log(err);
 								return;
 							}
 

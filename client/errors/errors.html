@@ -1,0 +1,10 @@
+<template name="errors">
+	{{#if errors}}
+		{{#each errors}}
+		<div class="alert {{#if type}}alert-{{type}}{{/if}}">
+		  <button type="button" class="close" data-dismiss="alert">&times;</button>
+		  <strong>{{title}}</strong> {{text}}
+		</div>
+		{{/each}}		
+	{{/if}}
+</template>

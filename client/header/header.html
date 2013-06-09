@@ -1,0 +1,11 @@
+<template name="header">
+	{{#if loggingIn}}
+		Loading..
+	{{/if}}
+
+	{{#if currentUser}}
+		{{currentUser.username}} | <a href="#" id="logout">Logout</a> | <a href="#" id="changePass">change Password</a>
+	{{else}}
+		<a href="#" id="connect">Register</a> | {{loginButtons}}
+	{{/if}}
+</template>

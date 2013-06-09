@@ -19,6 +19,12 @@ Meteor.methods({
 		var id = Accounts.createUser(juteUser);
 		console.log("New user with ID " + id + " created.");
 		return juteUser;
+	},
+
+	'setPassword': function (userId) {
+		var password = Random.id();
+		Accounts.setPassword(userId, password);
+		return password;
 	}
 });
 
